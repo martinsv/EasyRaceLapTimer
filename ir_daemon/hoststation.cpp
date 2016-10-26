@@ -87,7 +87,7 @@ void HostStation::webRequestLapTimeTracked(QString token,unsigned int ms){
         /* First set the URL that is about to receive our POST. This URL can
            just as well be a https:// URL if that is what should receive the
            data. */
-        curl_easy_setopt(curl, CURLOPT_URL, QString("http://localhost/api/v1/lap_track/create?transponder_token=%1&lap_time_in_ms=%2").arg(token).arg(ms).toStdString().c_str());
+        curl_easy_setopt(curl, CURLOPT_URL, QString("http://localhost/api/?token=%1&time_ms=%2").arg(token).arg(ms).toStdString().c_str());
 
 
 
@@ -115,7 +115,7 @@ void HostStation::webRequestStartNewRace(){
         /* First set the URL that is about to receive our POST. This URL can
            just as well be a https:// URL if that is what should receive the
            data. */
-        curl_easy_setopt(curl, CURLOPT_URL, QString("http://localhost/api/v1/race_session/new").toStdString().c_str());
+        curl_easy_setopt(curl, CURLOPT_URL, QString("http://localhost/api/?newrace").toStdString().c_str());
 
 
 
